@@ -1,0 +1,21 @@
+{% extends 'application1/dummy.html' %}
+
+
+{% block title %}
+<title>school delete page</title>
+{% endblock %}
+
+
+
+{% block body_block %}
+
+<center>
+    <h4 class="mt-3">Are You Sure ,that you want to delete{{sclobj.ScName}} school? </h4>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Yes,Delete" class="btn btn-outline-danger"><br>
+        <a href="{% url 'SchoolList' %}" class="btn btn-outline-primary mt-3">NO,take me Back to List</a>
+        <a href="{% url 'SchoolDetails' pk=sclobj.pk %} " class="btn btn-outline-primary mt-3">NO, take me Back to Detail</a>
+    </form>
+</center>
+{% endblock %}

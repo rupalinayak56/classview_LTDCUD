@@ -1,0 +1,27 @@
+{% extends 'application1/dummy.html' %}
+
+{% block title %}
+    <title>SchoolCreate</title>
+{% endblock %}
+
+
+
+{% block body_block  %}
+<center>
+    {% if form.instance.pk %}
+        <h3 class="mt-3">Update School</h3>
+    {% else %}
+        <h3 class="mt-3">Insert School</h3>
+    {% endif %}
+    <form  method="POST" class="mt-3">
+        {% csrf_token %}
+        {{form.as_p}}
+    {% if form.instance.pk %}
+        <input type="submit" value="UPDATE" class="mb-2 btn btn-outline-primary">
+    {% else %}
+        <input type="submit" value="CREATE" class="mb-2 btn btn-outline-success">
+    {% endif %}
+        
+    </form>
+</center>
+{% endblock %}

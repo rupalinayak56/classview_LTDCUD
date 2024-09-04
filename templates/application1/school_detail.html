@@ -1,0 +1,52 @@
+{% extends 'application1/dummy.html' %}
+
+{% block title %}
+    <title>SchoolDetails</title>
+{% endblock %}
+
+
+
+{% block body_block  %}
+<center>
+    <h3 class="mt-3">Detail information of {{schoolobject.ScName}} school </h3>
+    <table class="table table-bordered text-center mt-3">
+        <thead class="text-light" style="background-color: rgb(8, 54, 55);">
+            <tr>
+              <th>SchoolName</th>
+              <th>Principal</th>
+              <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                   <td>{{schoolobject.ScName}}</td>
+                   <td>{{schoolobject.ScPrincipal}}</td>
+                   <td>{{schoolobject.ScLocation}}</td>
+                </tr>
+        </tbody>
+    </table>
+    <h3 class="mt-3">Details Of Students</h3>
+    <table class="table table-bordered text-center mt-3">
+        <thead class="text-light" style="background-color: rgb(8, 54, 55);">
+            <tr>
+              <th>StudentName</th>
+              <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for sto in schoolobject.students.all %}
+                <tr>
+                    <td>{{sto.Sname}}</td>
+                    <td>{{sto.Sage}}</td>
+                    
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'SchoolUpdate' pk=schoolobject.pk %}" class="btn btn-outline-primary mt-5">School Update</a>
+    <a href="{% url 'SchoolDelete' pk=schoolobject.pk %}" class="btn btn-outline-danger mt-5">School Delete</a>
+   
+    
+</center>
+
+{% endblock %}

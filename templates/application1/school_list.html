@@ -1,0 +1,26 @@
+{% extends 'application1/dummy.html' %}
+
+{% block title %}
+    <title>Schools</title>
+{% endblock %}
+
+
+
+{% block body_block  %}
+<center>
+    <table class="table table-bordered text-center mt-3">
+        <thead class="text-light" style="background-color:rgb(8, 54, 55);">
+          <tr>
+            <th>SchoolList</th>
+          </tr>
+        </thead>
+        <tbody >
+            {% for sco in schools  %}
+                <tr>
+                   <td><a href="{{sco.pk}}">{{sco.ScName}}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+{% endblock %}

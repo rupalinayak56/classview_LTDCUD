@@ -1,0 +1,17 @@
+{% extends 'application1/dummy.html' %}
+
+{% block title %}
+    <title>StudentInsertion</title>
+{% endblock %}
+
+
+
+{% block body_block  %}
+<center>
+    <h3>Add Student</h3>
+    <form  method="POST" class="mt-3">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit"class="mb-2 btn btn-outline-success">
+    </form>
+{% endblock %}
